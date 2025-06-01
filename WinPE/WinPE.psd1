@@ -27,7 +27,7 @@
     CompanyName = 'Unknown'
     
     # Copyright statement for this module
-    Copyright = '(c) 2023 Machiel Brinkman. All rights reserved.'
+    Copyright = '(c) 2025 Machiel Brinkman. All rights reserved.'
     
     # Description of the functionality provided by this module
     # Description = ''
@@ -69,7 +69,7 @@
     # NestedModules = @()
     
     # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
-    FunctionsToExport = 'Copy-WinPE'
+    FunctionsToExport = 'Copy-WinPE', 'Mount-WinPEBootImage', 'Dismount-WinPEBootImage'
     
     # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
     CmdletsToExport = @()

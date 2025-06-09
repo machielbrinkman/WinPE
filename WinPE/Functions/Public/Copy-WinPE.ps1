@@ -11,7 +11,6 @@
     Copy-WinPE -WinPEArch amd64 -Destination D:\WinPE
     Creates the working directories in D:\WinPE\amd64.
     Copies the amd64 Windows PE files to D:\WinPE\amd64\media.
-
 #>
 
 function Copy-WinPE

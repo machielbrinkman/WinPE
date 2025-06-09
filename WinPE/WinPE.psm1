@@ -27,3 +27,5 @@ $WinPE =
     InstallPath = $null
 }
 New-Variable -Name WinPE -Value $WinPE -Scope Script -Force
+
+Find-WinPEInstallation

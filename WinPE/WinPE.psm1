@@ -18,3 +18,12 @@ New-Alias -Name copype -Value Copy-WinPE -Description "Creates working directori
 #New-Alias -Name MakeWinPEMedia -Value New-WinPEMEdia -Description "Creates bootable WinPE USB flash drive or ISO file."
 
 Export-ModuleMember -Function * -Alias *
+
+# Module Variables
+$WinPE =
+@{
+    Version = $null
+    Installed = $false
+    InstallPath = $null
+}
+New-Variable -Name WinPE -Value $WinPE -Scope Script -Force

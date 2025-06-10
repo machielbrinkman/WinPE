@@ -42,10 +42,6 @@ function Copy-WinPE
     # Set $Destination including architecture
     $Destination = $Destination + $WinPEArch
     
-    #Find Windows ADK install dir
-    #$ADKRoot = $WinPE.InstallPath
-
-    #$WinADKRoot = $ADKRoot + 'Assessment and Deployment Kit\'
     $WinPERoot = $WinPE.InstallPath + $WinPEArch
     
     #Even niet!!! Onderdeel van ADK, niet van Win PE Addon...
@@ -91,7 +87,6 @@ function Copy-WinPE
     New-Item -ItemType Directory -Path "$Destination\mount" -Force -Verbose:$PSBoundParameters.verbose | Out-Null
     
     # Copy ISO boot files
-    New-Item -ItemType Directory -Path "$Destination\fwfiles" -Force -Verbose:$PSBoundParameters.verbose | Out-Null
-    Copy-Item -Path "$FWFilesRoot\*" -Destination "$Destination\fwfiles" -Include 'efisys.bin','etfsboot.com' -Verbose:$PSBoundParameters.verbose
-    
+    #New-Item -ItemType Directory -Path "$Destination\fwfiles" -Force -Verbose:$PSBoundParameters.verbose | Out-Null
+    #Copy-Item -Path "$FWFilesRoot\*" -Destination "$Destination\fwfiles" -Include 'efisys.bin','etfsboot.com' -Verbose:$PSBoundParameters.verbose
 }

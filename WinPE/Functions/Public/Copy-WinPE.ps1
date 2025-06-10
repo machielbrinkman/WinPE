@@ -31,18 +31,25 @@ function Copy-WinPE
         # Overwrites the <Destination> directory without asking.
         [Parameter(Mandatory = $false)]
         [switch]$Force
-
     )
+
+    if (-not $WinPE.Installed)
+    {
+        Write-Error 'The Windowws PE Add-ons are not installed!'
+        return
+    }
 
     # Set $Destination including architecture
     $Destination = $Destination + $WinPEArch
     
     #Find Windows ADK install dir
-    $ADKRoot = Find-ADKInstallation
+    #$ADKRoot = $WinPE.InstallPath
 
-    $WinADKRoot = $ADKRoot + 'Assessment and Deployment Kit\'
-    $WinPERoot = $WinADKRoot + 'Windows Preinstallation Environment\' + $WinPEArch
-    $FWFilesRoot = $WinADKRoot + 'Deployment Tools\' + $WinPEArch + '\Oscdimg\'
+    #$WinADKRoot = $ADKRoot + 'Assessment and Deployment Kit\'
+    $WinPERoot = $WinPE.InstallPath + $WinPEArch
+    
+    #Even niet!!! Onderdeel van ADK, niet van Win PE Addon...
+    #$FWFilesRoot = $WinADKRoot + 'Deployment Tools\' + $WinPEArch + '\Oscdimg\'
 
     # Question ...
     $Title = 'Delete directory!'

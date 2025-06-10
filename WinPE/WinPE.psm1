@@ -25,6 +25,8 @@ $WinPE =
     Version = $null
     Installed = $false
     InstallPath = $null
+    KitsRoot = $null
+    ADKRoot = $null
 }
 New-Variable -Name WinPE -Value $WinPE -Scope Script -Force
 

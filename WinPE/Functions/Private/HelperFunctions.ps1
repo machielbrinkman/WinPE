@@ -13,16 +13,18 @@ function Find-WinPEInstallation
    if ($KitsConfigurationInstaller)
    {
       $WinPE.Version = $KitsConfigurationInstaller.Version
-      $WinPE.InstallPath = Get-ItemPropertyValue -Path 'HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows Kits\Installed Roots' -Name KitsRoot10
+      $WinPE.KitsRoot = Get-ItemPropertyValue -Path 'HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows Kits\Installed Roots' -Name KitsRoot10
 
       # The Kits Configuration version somehow uses always 10.0.xxxx.0
       $KitsConfigurationVersion = $WinPE.Version -replace "^10\.1", "10.0" -replace "\.[^.]+$", ".0"
+      
       # Determine if the Windows PE Add-ons are installed
-
       $WinPEOptionInstalled = Get-ItemProperty -Path "HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows Kits\Installed Roots\$KitsConfigurationVersion\Installed Options" -Name OptionId.WindowsPreinstallationEnvironment -ErrorAction SilentlyContinue
       if ($WinPEOptionInstalled)
       {
          $WinPE.Installed = $true
+         $WinPE.ADKRoot = $WinPE.KitsRoot +  'Assessment and Deployment Kit\'
+         $WinPE.InstallPath = $WinPE.ADKRoot + 'Windows Preinstallation Environment\'
       }
    }
 }

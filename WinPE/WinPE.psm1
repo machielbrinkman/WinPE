@@ -7,6 +7,7 @@
 . $PSScriptRoot\Functions\Public\Mount-WinPEBootImage.ps1
 . $PSScriptRoot\Functions\Public\Dismount-WinPEBootImage.ps1
 . $PSScriptRoot\Functions\Public\Add-WinPEOptionalComponent.ps1
+. $PSScriptRoot\Functions\Public\Remove-WinPELanguages.ps1
 #. $PSScriptRoot\Functions\Public\Update-WinPE.ps1
 #. $PSScriptRoot\Functions\Public\New-WinPEMedia.ps1
 

@@ -28,13 +28,25 @@ function Dismount-WinPEBootImage
         [string]$Path,
 
         [Parameter(Mandatory = $true, ParameterSetName = 'Save', Position = 2)]
-        $Save,
+        [switch]$Save,
 
         [Parameter(Mandatory = $true, ParameterSetName = 'Discard', Position = 2)]
-        $Discard
+        [switch]$Discard
     )
+    $DismountParms = @{Path = "$Path\$WinPEArch\mount"}
+
+    Write-Host $PSCmdlet.ParameterSetName
+    if ($Save) {Write-Host $Save
+    $DismountParms.Add('Save', $Save)}
+    elseif ($Discard) {
+        Write-Host $Discard
+        $DismountParms.Add('Discard', $Discard)
+    }
+
+    $DismountParms
 
     # Dismount the WinPE Boot Image
-    Dismount-WindowsImage -Path "$Path\$WinPEArch\mount" -Save
+    Write-Host "Dismount-WindowsImage -Path "$Path\$WinPEArch\mount" -Save"
+    Dismount-WindowsImage @DismountParms
 
 }

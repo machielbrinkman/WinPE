@@ -4,8 +4,8 @@
 
  .DESCRIPTION
     Creates working directories for WinPE image customization and media creation.
-    This function has simular functionality as copype from the Windows ADK.
-    The Windows ADK needs to be installed, with the Windows PE option.
+    This function has simular functionality as copype from the Windows PE Add-on.
+    The Windows ADK does not need to be installed, however some deployment tools are nor installed.
 
  .EXAMPLE
     Copy-WinPE -WinPEArch amd64 -Destination D:\WinPE

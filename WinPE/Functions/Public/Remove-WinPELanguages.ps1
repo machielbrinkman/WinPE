@@ -28,7 +28,7 @@ function Remove-WinPELanguages
 
     # Set $Destination including architecture
     #Review - werkt nog niet helemaal zoals gewenst...
-    $Destination = $Destination + $WinPEArch
+    $Destination = "$Destination\$WinPEArch"
 
     # Remove unnescesary Languages files and folders
     Remove-Item -Path $Destination -Include ??-??, ??-????-?? -Exclude en-us -Recurse

@@ -40,7 +40,7 @@ function Copy-WinPE
     }
 
     # Set $Destination including architecture
-    $Destination = $Destination + $WinPEArch
+    $Destination = "$Destination\$WinPEArch"
     
     $WinPERoot = $WinPE.InstallPath + $WinPEArch
     

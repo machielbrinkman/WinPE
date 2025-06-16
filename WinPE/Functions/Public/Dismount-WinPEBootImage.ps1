@@ -1,6 +1,6 @@
 <# 
  .SYNOPSIS
-    Dismount-WinPEBootImage...
+    Dismount the Windows PE Boot Image, from the specified working directory.
 
  .DESCRIPTION
     ...
@@ -22,7 +22,7 @@ function Dismount-WinPEBootImage
         [ValidateSet('amd64', 'x86', 'arm', 'arm64')]
         [string]$WinPEArch,
 
-        # Creates the working directory at the specified location.
+        # The Windows PE working directory.
         [Parameter(Mandatory = $true, ParameterSetName = 'Save', Position = 1)]
         [Parameter(Mandatory = $true, ParameterSetName = 'Discard', Position = 1)]
         [string]$Path,
@@ -45,10 +45,6 @@ function Dismount-WinPEBootImage
         $DismountParms.Add('Discard', $Discard)
     }
 
-    $DismountParms
-
     # Dismount the WinPE Boot Image
-    #Write-Host "Dismount-WindowsImage -Path "$Path\$WinPEArch\mount" -Save"
     Dismount-WindowsImage @DismountParms
-
 }

@@ -1,9 +1,9 @@
 <# 
  .SYNOPSIS
-    Remove-WinPELanguages.ps1...
+    Removes the extra language directories except the en-us.
 
  .DESCRIPTION
-    ...
+    Removes the extra language directories except the en-us directories.
 
  .EXAMPLE
     ...
@@ -21,15 +21,14 @@ function Remove-WinPELanguages
         [ValidateSet('amd64', 'x86', 'arm', 'arm64')]
         [string]$WinPEArch,
 
-        # Creates the working directory at the specified location.
+        # The Windows PE working directory.
         [Parameter(Mandatory = $true, Position = 1)]
-        [string]$Destination
+        [string]$Path
     )
 
-    # Set $Destination including architecture
-    #Review - werkt nog niet helemaal zoals gewenst...
-    $Destination = "$Destination\$WinPEArch"
+    # Set $Path including architecture
+    $Path = "$Path\$WinPEArch"
 
     # Remove unnescesary Languages files and folders
-    Remove-Item -Path $Destination -Include ??-??, ??-????-?? -Exclude en-us -Recurse
+    Remove-Item -Path $Path -Include ??-??, ??-????-?? -Exclude en-us -Recurse
 }

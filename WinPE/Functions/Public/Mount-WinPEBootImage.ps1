@@ -1,6 +1,6 @@
 <# 
  .SYNOPSIS
-    Mount-WinPEBootImage...
+    Mount the Windows PE Boot Image, in the specified working directory.
 
  .DESCRIPTION
     ...
@@ -21,13 +21,11 @@ function Mount-WinPEBootImage
         [ValidateSet('amd64', 'x86', 'arm', 'arm64')]
         [string]$WinPEArch,
 
-        # Creates the working directory at the specified location.
+        # The Windows PE working directory.
         [Parameter(Mandatory = $true, Position = 1)]
         [string]$Path
-
     )
 
     # Mount the WinPE Boot Image
     Mount-WindowsImage -ImagePath "$Path\$WinPEArch\media\sources\boot.wim" -Index 1 -Path "$Path\$WinPEArch\mount"
-
 }

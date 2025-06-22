@@ -10,11 +10,6 @@
 
 #>
 
-
-# Mount the image
-#Mount-WindowsImage -ImagePath D:\WinPE\media\sources\boot.wim -Index 1 -Path $Destination
-
-
 function Add-WinPEOptionalComponent
 {
     [CmdletBinding()]
@@ -33,20 +28,14 @@ function Add-WinPEOptionalComponent
         # Overwrites the <Destination> directory without asking.
         [Parameter(Mandatory = $false)]
         [switch]$Force
-
     )
 
-
     # Set $Destination including architecture
-    $Destination = $Destination + $WinPEArch + '\mount'
-    
-    #Find Windows ADK install dir
-    $ADKRoot = Find-ADKInstallation
+    $Destination = "$Destination\$WinPEArch\mount"
 
-    $WinADKRoot = $ADKRoot + 'Assessment and Deployment Kit\'
-    $WinPERoot = $WinADKRoot + 'Windows Preinstallation Environment\' + $WinPEArch
+    $WinPERoot = $WinPE.InstallPath + $WinPEArch
 
-# Add Packages to the image
+    # Add Packages to the image
 Add-WindowsPackage -Path $Destination -PackagePath "$WinPERoot\WinPE_OCs\WinPE-WMI.cab"
 Add-WindowsPackage -Path $Destination -PackagePath "$WinPERoot\WinPE_OCs\en-us\WinPE-WMI_en-us.cab"
 Add-WindowsPackage -Path $Destination -PackagePath "$WinPERoot\WinPE_OCs\WinPE-NetFx.cab"
@@ -62,12 +51,7 @@ Add-WindowsPackage -Path $Destination -PackagePath "$WinPERoot\WinPE_OCs\en-us\W
 Add-WindowsPackage -Path $Destination -PackagePath "$WinPERoot\WinPE_OCs\WinPE-StorageWMI.cab"
 Add-WindowsPackage -Path $Destination -PackagePath "$WinPERoot\WinPE_OCs\en-us\WinPE-StorageWMI_en-us.cab"
 
-
-
 }
-
-
-
 
 # Make PowerShell the default shell
 #Copy-Item -Path 'D:\Lab Environment\Scripts\WinPE\*' -Destination $Destinationwindows\system32\ -Exclude 'Build WinPE with Powershell.txt'

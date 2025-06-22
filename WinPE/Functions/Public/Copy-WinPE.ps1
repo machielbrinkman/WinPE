@@ -35,7 +35,7 @@ function Copy-WinPE
 
     if (-not $WinPE.Installed)
     {
-        Write-Error 'The Windows PE Add-ons are not installed!'
+        Write-Error 'The Windows PE Add-on is not installed!'
         return
     }
 

@@ -7,7 +7,7 @@
 
  .EXAMPLE
     Remove-WinPELanguages -WinPEArch amd64 -Path E:\WinPE
-
+    Removes the extra language directories except the en-us directories.
 #>
 
 function Remove-WinPELanguages

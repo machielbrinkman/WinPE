@@ -3,11 +3,15 @@
     Dismount the Windows PE Boot Image, from the specified working directory.
 
  .DESCRIPTION
-    ...
+    Dismount the Windows PE Boot Image, from the specified working directory.
 
  .EXAMPLE
-    ...
+    Dismount-WinPEBootImage -WinPEArch amd64 -Path D:\WinPE -Save
+    Dismounts the Windows PE Boot Image, from the specified working directory and saves the changes.
 
+ .EXAMPLE
+    Dismount-WinPEBootImage -WinPEArch amd64 -Path D:\WinPE -Discard
+    Dismounts the Windows PE Boot Image, from the specified working directory and discards the changes.
 #>
 
 function Dismount-WinPEBootImage

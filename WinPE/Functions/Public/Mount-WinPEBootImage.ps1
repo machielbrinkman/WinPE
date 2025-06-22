@@ -3,11 +3,11 @@
     Mount the Windows PE Boot Image, in the specified working directory.
 
  .DESCRIPTION
-    ...
+    Mount the Windows PE Boot Image, in the specified working directory.
 
  .EXAMPLE
-    ...
-
+    Mount-WinPEBootImage -WinPEArch amd64 -Path D:\WinPE
+    Mounts the Windows PE Boot Image, in the specified working directory.
 #>
 
 function Mount-WinPEBootImage
